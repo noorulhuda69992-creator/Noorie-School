@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noorie School — Building Knowledge, Character & a Bright Future.">
+<title>Admission Form | Noorie School</title>
+<style>
+:root{
+  --navy:#12355b; --blue:#1769aa; --sky:#eaf5ff; --gold:#e8b44f;
+  --ink:#172536; --muted:#607080; --white:#fff; --line:#dbe5ee;
+  --shadow:0 12px 32px rgba(18,53,91,.10); --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f8fbfd;line-height:1.65}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.container{width:min(1120px,92%);margin:auto}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navbar{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.25rem;color:var(--navy)}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));color:white;display:grid;place-items:center;font-weight:900;box-shadow:0 8px 18px rgba(23,105,170,.25)}
+.nav-links{display:flex;align-items:center;gap:5px;list-style:none}
+.nav-links a{padding:10px 13px;border-radius:10px;color:#405265;font-weight:700;font-size:.94rem}
+.nav-links a:hover,.nav-links a.active{background:var(--sky);color:var(--blue)}
+.menu-toggle{display:none;border:0;background:transparent;font-size:1.7rem;color:var(--navy);cursor:pointer}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0f3155 0%,#1769aa 68%,#2686c7 100%);color:white;padding:100px 0}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-160px;background:rgba(255,255,255,.08)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:inline-block;color:#ffe3a0;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:999px;font-weight:800;font-size:.82rem;letter-spacing:.04em;margin-bottom:16px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.05;margin-bottom:18px}
+.hero p{font-size:1.08rem;max-width:650px;color:#e8f3fb}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid transparent;font-weight:800;cursor:pointer;transition:.2s transform,.2s box-shadow,.2s background}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.12)}
+.btn-primary{background:var(--gold);color:#26323e}
+.btn-light{background:white;color:var(--navy)}
+.btn-outline{background:transparent;border-color:#cbd9e5;color:var(--navy)}
+.hero .btn-outline{border-color:rgba(255,255,255,.45);color:white}
+.hero-card{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);padding:28px;border-radius:24px;box-shadow:0 20px 45px rgba(0,0,0,.12)}
+.hero-card .school-icon{font-size:4rem;margin-bottom:14px}
+.hero-card h3{font-size:1.35rem;margin-bottom:8px}
+section{padding:78px 0}
+.section-head{max-width:720px;margin-bottom:36px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+.section-kicker{color:var(--blue);font-weight:900;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;margin-bottom:8px}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.7rem);color:var(--navy);line-height:1.15;margin-bottom:12px}
+.section-head p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);transition:.25s transform,.25s box-shadow}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(18,53,91,.13)}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--sky);display:grid;place-items:center;font-size:1.35rem;margin-bottom:18px}
+.card h3{color:var(--navy);margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem}
+.alt{background:#edf6fb}
+.announcement-list{display:grid;gap:12px}
+.announcement{background:white;border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;gap:18px;align-items:flex-start}
+.date-badge{min-width:72px;text-align:center;background:var(--sky);color:var(--blue);border-radius:10px;padding:7px;font-weight:900;font-size:.78rem}
+.cta{background:linear-gradient(135deg,var(--navy),#1d76b5);color:white;border-radius:24px;padding:42px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.cta h2{font-size:2rem;line-height:1.15;margin-bottom:8px}
+.cta p{color:#dbeaf5}
+.page-hero{background:linear-gradient(135deg,#edf6fb,#fff);padding:70px 0;border-bottom:1px solid var(--line)}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--navy);line-height:1.1;margin-bottom:10px}
+.page-hero p{color:var(--muted);max-width:760px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info-list{list-style:none;display:grid;gap:11px}
+.info-list li{padding-left:28px;position:relative;color:var(--muted)}
+.info-list li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:900}
+.quote{background:white;border-left:5px solid var(--gold);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+.quote p{font-size:1.05rem;color:#3e5061;font-style:italic;margin-bottom:18px}
+.timeline{display:grid;gap:15px}
+.step{display:grid;grid-template-columns:50px 1fr;gap:15px;align-items:start}
+.step-num{width:42px;height:42px;border-radius:50%;background:var(--navy);color:white;display:grid;place-items:center;font-weight:900}
+.form-wrap{background:white;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-weight:800;font-size:.9rem;color:#34485a}
+input,select,textarea{width:100%;padding:12px 13px;border:1px solid #cbd8e3;border-radius:10px;font:inherit;color:var(--ink);background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,170,.1)}
+textarea{min-height:125px;resize:vertical}
+.error{color:#b42318;font-size:.78rem;min-height:18px}
+.notice{padding:14px 16px;border-radius:11px;background:#fff7df;border:1px solid #f0d486;color:#5c4816;margin-bottom:20px}
+.success{display:none;padding:14px 16px;border-radius:11px;background:#e9f8ef;border:1px solid #a7dbbb;color:#17633a;margin-top:16px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact-card{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+.contact-card strong{display:block;color:var(--navy);margin-bottom:4px}
+.footer{background:#0d2845;color:#cfe0ed;padding:48px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .9fr;gap:35px;margin-bottom:35px}
+.footer h3{color:white;margin-bottom:12px}
+.footer ul{list-style:none;display:grid;gap:7px}
+.footer a:hover{color:white}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.13);padding-top:18px;font-size:.85rem;display:flex;justify-content:space-between;gap:15px}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
+.reveal.visible{opacity:1;transform:none}
+.print-only{display:none}
+@media(max-width:900px){
+ .hero-grid,.two-col{grid-template-columns:1fr}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .three-col,.contact-grid{grid-template-columns:1fr 1fr}
+ .nav-links{position:absolute;left:4%;right:4%;top:70px;background:white;border:1px solid var(--line);border-radius:14px;padding:10px;display:none;flex-direction:column;align-items:stretch;box-shadow:var(--shadow)}
+ .nav-links.open{display:flex}.nav-links a{display:block}
+ .menu-toggle{display:block}
+}
+@media(max-width:620px){
+ section{padding:58px 0}.hero{padding:72px 0}.cards,.three-col,.contact-grid,.form-grid{grid-template-columns:1fr}
+ .form-wrap{padding:20px}.cta{padding:28px;display:block}.cta .actions{margin-top:20px}
+ .footer-grid{grid-template-columns:1fr}.footer-bottom{display:block}
+ .hero h1{font-size:2.7rem}
+}
+@media print{
+ .site-header,.footer,.no-print,.actions,.page-hero{display:none!important}
+ body{background:#fff;color:#111}.print-only{display:block}
+ .form-wrap{box-shadow:none;border:0;padding:0}
+}
+</style></head>
+<body>
+<header class="site-header"><div class="container navbar">
+<a class="logo" href="index.html"><span class="logo-mark">NS</span><span>Noorie School</span></a>
+<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav aria-label="Main navigation"><ul class="nav-links"><li><a class="" href="index.html">Home</a></li>
+<li><a class="" href="about.html">About Us</a></li>
+<li><a class="" href="admissions.html">Admissions</a></li>
+<li><a class="active" href="admission-form.html">Admission Form</a></li>
+<li><a class="" href="contact.html">Contact</a></li></ul></nav>
+</div></header>
+
+<main>
+<section class="page-hero"><div class="container reveal"><div class="section-kicker">Admission Form</div><h1>Student Admission Application</h1><p>Complete the fields below. This browser-based form validates your entries but does not submit data to a server.</p></div></section>
+<section><div class="container"><div class="form-wrap reveal">
+<div class="notice no-print"><strong>Important:</strong> This is a frontend-only form. After completing it, use <strong>Print Form</strong> to print it or use <strong>Download Form</strong> to download a blank, printable HTML version. No data is sent to Noorie School.</div>
+<form id="admissionForm" novalidate>
+<h2>Student Information</h2><div class="form-grid" style="margin-top:18px">
+<div class="field"><label for="studentName">Student Full Name *</label><input id="studentName" required><span class="error" id="studentName-error"></span></div>
+<div class="field"><label for="fatherName">Father's Name *</label><input id="fatherName" required><span class="error" id="fatherName-error"></span></div>
+<div class="field"><label for="dob">Date of Birth *</label><input id="dob" type="date" required><span class="error" id="dob-error"></span></div>
+<div class="field"><label for="gender">Gender *</label><select id="gender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select><span class="error" id="gender-error"></span></div>
+<div class="field"><label for="bform">B-Form/Registration Number *</label><input id="bform" required><span class="error" id="bform-error"></span></div>
+<div class="field"><label for="previousSchool">Previous School</label><input id="previousSchool"><span class="error" id="previousSchool-error"></span></div>
+<div class="field"><label for="classApplying">Class Applying For *</label><input id="classApplying" required placeholder="e.g., Grade 5"><span class="error" id="classApplying-error"></span></div>
+</div>
+<h2 style="margin-top:30px">Parent / Guardian Information</h2><div class="form-grid" style="margin-top:18px">
+<div class="field"><label for="guardian">Father's/Guardian's Name *</label><input id="guardian" required><span class="error" id="guardian-error"></span></div>
+<div class="field"><label for="cnic">CNIC *</label><input id="cnic" required placeholder="Enter CNIC"><span class="error" id="cnic-error"></span></div>
+<div class="field"><label for="phone">Contact Number *</label><input id="phone" type="tel" required placeholder="0314-1122456"><span class="error" id="phone-error"></span></div>
+<div class="field"><label for="email">Email *</label><input id="email" type="email" required><span class="error" id="email-error"></span></div>
+<div class="field"><label for="occupation">Occupation</label><input id="occupation"><span class="error" id="occupation-error"></span></div>
+</div>
+<h2 style="margin-top:30px">Address Information</h2><div class="form-grid" style="margin-top:18px">
+<div class="field full"><label for="address">Complete Address *</label><textarea id="address" required></textarea><span class="error" id="address-error"></span></div>
+<div class="field"><label for="city">City *</label><input id="city" required><span class="error" id="city-error"></span></div>
+</div>
+<h2 style="margin-top:30px">Additional Information</h2><div class="form-grid" style="margin-top:18px">
+<div class="field full"><label for="record">Previous Academic Record</label><textarea id="record"></textarea><span class="error" id="record-error"></span></div>
+<div class="field full"><label for="medical">Medical / Other Relevant Information</label><textarea id="medical"></textarea><span class="error" id="medical-error"></span></div>
+<div class="field full"><label for="emergency">Emergency Contact *</label><input id="emergency" required placeholder="Name and contact number"><span class="error" id="emergency-error"></span></div>
+</div>
+<div class="actions no-print"><button class="btn btn-primary" type="submit">Validate Form</button><button class="btn btn-outline" type="reset">Reset</button><button class="btn btn-outline" type="button" onclick="window.print()">Print Form</button><button class="btn btn-outline" type="button" onclick="downloadAdmissionForm()">Download Form</button></div>
+<div class="success" id="formSuccess">The form is complete and ready to print or save. No information has been submitted to the school.</div>
+</form></div></div></section>
+</main>
+<script>
+// Admission form validation is intentionally local; no information is transmitted.
+document.addEventListener("DOMContentLoaded",()=>{
+ const form=document.getElementById("admissionForm"), success=document.getElementById("formSuccess");
+ form.addEventListener("submit",e=>{
+   e.preventDefault(); success.style.display="none";
+   const ok=validateForm(form);
+   if(ok){ success.style.display="block"; success.scrollIntoView({behavior:"smooth",block:"center"}); }
+ });
+ form.addEventListener("reset",()=>{ setTimeout(()=>{form.querySelectorAll(".error").forEach(x=>x.textContent=""); success.style.display="none";},0); });
+});
+</script>
+
+<footer class="footer"><div class="container footer-grid">
+<div><h3>Noorie School</h3><p>Building Knowledge, Character &amp; a Bright Future. A caring learning community focused on academic growth and student development.</p></div>
+<div><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="admission-form.html">Admission Form</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div><h3>Contact</h3><ul><li>0314-1122456</li><li><a href="mailto:noorulhuda.69992@iqra.edu.pk">noorulhuda.69992@iqra.edu.pk</a></li><li>Address: [Enter School Address]</li></ul></div>
+</div><div class="container footer-bottom"><span>© <span data-year></span> Noorie School. All rights reserved.</span><span>Informational website · Frontend only</span></div></footer>
+<script>
+// Shared frontend-only JavaScript used on every page.
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.querySelector(".menu-toggle");
+  const links = document.querySelector(".nav-links");
+  if(menu && links){
+    menu.addEventListener("click", () => {
+      links.classList.toggle("open");
+      menu.setAttribute("aria-expanded", links.classList.contains("open"));
+    });
+    links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => links.classList.remove("open")));
+  }
+
+  // Add a subtle reveal animation as sections/cards enter the viewport.
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+  // Automatically display the current year in all footer elements.
+  document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
+
+  // Smooth scroll for same-page anchors.
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+    const target = document.querySelector(a.getAttribute("href"));
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:"smooth"}); }
+  }));
+});
+
+function showError(input, message){
+  const error = document.getElementById(input.id + "-error");
+  if(error) error.textContent = message || "";
+  input.setAttribute("aria-invalid", message ? "true" : "false");
+}
+function validEmail(value){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
+function validPhone(value){ return /^[0-9+\-\s()]{7,20}$/.test(value); }
+
+function validateForm(form){
+  let ok = true;
+  form.querySelectorAll("[required]").forEach(input => {
+    const value = input.value.trim();
+    let msg = "";
+    if(!value) msg = "This field is required.";
+    else if(input.type === "email" && !validEmail(value)) msg = "Please enter a valid email address.";
+    else if(input.type === "tel" && !validPhone(value)) msg = "Please enter a valid phone number.";
+    showError(input,msg); if(msg) ok=false;
+  });
+  return ok;
+}
+
+// Creates a self-contained, printable HTML admission form and downloads it locally.
+function downloadAdmissionForm(){
+  const html = `<!doctype html><html><head><meta charset="utf-8"><title>Noorie School Admission Form</title>
+  <style>
+  @page{size:A4;margin:16mm}body{font-family:Arial,sans-serif;color:#172536;line-height:1.5}
+  h1{color:#12355b;text-align:center;margin:0 0 5px}h2{font-size:17px;color:#1769aa;border-bottom:2px solid #1769aa;padding-bottom:5px;margin-top:22px}
+  .sub{text-align:center;color:#607080;margin-bottom:20px}.line{border-bottom:1px solid #888;display:inline-block;min-width:220px;height:20px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:12px 0}.box{border:1px solid #ccd6df;border-radius:7px;padding:10px;min-height:42px}
+  .full{grid-column:1/-1}.instructions{background:#f2f7fb;padding:12px;border-radius:8px;margin-top:18px}small{color:#607080}
+  </style></head><body>
+  <h1>Noorie School</h1><div class="sub">Building Knowledge, Character &amp; A Bright Future</div>
+  <p><strong>Admission Form</strong> &nbsp; Please complete all applicable fields clearly. Submit the completed form to the school office.</p>
+  <h2>Student Information</h2>
+  <div class="row"><div>Student Full Name<div class="box"></div></div><div>Father's Name<div class="box"></div></div></div>
+  <div class="row"><div>Date of Birth<div class="box"></div></div><div>Gender<div class="box"></div></div></div>
+  <div class="row"><div>B-Form/Registration Number<div class="box"></div></div><div>Class Applying For<div class="box"></div></div></div>
+  <div class="row"><div class="full">Previous School<div class="box"></div></div></div>
+  <h2>Parent / Guardian Information</h2>
+  <div class="row"><div>Father/Guardian Name<div class="box"></div></div><div>CNIC<div class="box"></div></div></div>
+  <div class="row"><div>Contact Number<div class="box"></div></div><div>Email<div class="box"></div></div></div>
+  <div class="row"><div class="full">Occupation<div class="box"></div></div></div>
+  <h2>Address Information</h2>
+  <div class="row"><div class="full">Complete Address<div class="box"></div></div><div>City<div class="box"></div></div></div>
+  <h2>Additional Information</h2>
+  <div class="row"><div class="full">Previous Academic Record<div class="box" style="min-height:70px"></div></div></div>
+  <div class="row"><div class="full">Medical / Other Relevant Information<div class="box" style="min-height:70px"></div></div></div>
+  <div class="row"><div class="full">Emergency Contact<div class="box"></div></div></div>
+  <div class="instructions"><strong>Instructions:</strong> Provide accurate information and attach required supporting documents. The school may verify information before final admission. Fees and admission decisions are subject to school policy.</div>
+  <p style="margin-top:28px">Applicant/Guardian Signature: <span class="line"></span> &nbsp; Date: <span class="line" style="min-width:120px"></span></p>
+  </body></html>`;
+  const blob = new Blob([html], {type:"text/html"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a"); a.href=url; a.download="Noorie-School-Admission-Form.html";
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+</script></body></html>
